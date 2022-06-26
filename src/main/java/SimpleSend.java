@@ -15,13 +15,14 @@ import java.util.concurrent.ScheduledExecutorService;
 
 public class SimpleSend {
 
-    public void SendEvent() throws EventHubException, IOException{
+    public void SendEvent() throws EventHubException, ExecutionException, InterruptedException, IOException{
 
         final ConnectionStringBuilder connStr = new ConnectionStringBuilder()
-                .setNamespaceName("nbs-monitor-prod-evh-ns")
-                .setEventHubName("nbs-monitor-prod-evh")
-                .setSasKeyName("authorization-0")
-                .setSasKey("Endpoint=sb://nbs-monitor-prod-evh-ns.servicebus.windows.net/;SharedAccessKeyName=authorization-0;SharedAccessKey=H18C3NMQOpH/XoQGS7MavvzKmOAopsA77nFBR0IGwRs=;EntityPath=nbs-monitor-prod-evh");
+                .setNamespaceName("Your NamespaceName")
+                .setEventHubName("Your EventHubName")
+                .setSasKeyName("Your SasKey Name here")
+                .setSasKey("Your SasKeyName here");
+
 
         final Gson gson = new GsonBuilder().create();
 
@@ -58,9 +59,10 @@ public class SimpleSend {
         }
     }
 
-    public static void main(String[] args) throws EventHubException, IOException{
+    public static void main(String[] args) throws EventHubException, IOException, ExecutionException, InterruptedException {
 
         SimpleSend simpleSend = new SimpleSend();
+
         simpleSend.SendEvent();
 
 

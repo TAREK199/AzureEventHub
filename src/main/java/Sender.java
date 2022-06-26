@@ -4,8 +4,9 @@ import java.util.List;
 
 public class Sender {
 
-    private static final String connectionString = "Endpoint=sb://nbs-monitor-prod-evh-ns.servicebus.windows.net/;SharedAccessKeyName=authorization-0;SharedAccessKey=H18C3NMQOpH/XoQGS7MavvzKmOAopsA77nFBR0IGwRs=;EntityPath=nbs-monitor-prod-evh";
-    private static final String eventHubName = "nbs-monitor-prod-evh";
+
+    private static final String connectionString = "Your Connection String here";
+    private static final String eventHubName = "Your eventHubName here";
 
 
     /**
@@ -19,7 +20,7 @@ public class Sender {
                 .buildProducerClient();
 
         // sample events in an array
-        List<EventData> allEvents = Arrays.asList(new EventData("ratp"), new EventData("nubes"));
+        List<EventData> allEvents = Arrays.asList(new EventData("Foo"), new EventData("Bar"));
 
         // create a batch
         EventDataBatch eventDataBatch = producer.createBatch();
